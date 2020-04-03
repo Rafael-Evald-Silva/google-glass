@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Google Glass - Fale Conosco</title>
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/form.css"/>
+    </head>
+    <script src="javascript/funcoes.js"></script>
+    <script>
+        function calc_total(){
+            var Qtd = parseInt(document.getElementById('cQtd').value)
+            tot = Qtd * 1500;
+            document.getElementById('cTot').value = tot;
+        }
+    </script>
+    <body>
+        <div id="interface">
+            <header id="cabecalho">
+                <hgroup>
+                    <h1>Google Glass</h1>
+                    <h2>A revolução do Google está chegando</h2>
+                </hgroup>
+                
+                 <img id="icone" src="imagens/contato.png"/>
+
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+                    <ul>
+                        <li onmouseover="mudaFotos('imagens/home.png')" onmouseout="mudaFotos('imagens/contato.png')"><a href="index.html">Home</a></li>
+                        <li onmouseover="mudaFotos('imagens/especificacoes.png')" onmouseout="mudaFotos('imagens/contato.png')" ><a href="specs.html">Especificações</a></li>
+                        <li onmouseover="mudaFotos('imagens/fotos.png')" onmouseout="mudaFotos('imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                        <li onmouseover="mudaFotos('imagens/multimidia.png')" onmouseout="mudaFotos('imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                        <li onmouseover="mudaFotos('imagens/contato.png')" onmouseout="mudaFotos('imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <header id="cabecalho_artigo">
+                <hgroup>
+                    <h3>Fale Conosco > Contato</h3>
+                    <h1>Formulário de Contato</h1>
+                    <h2>por Rafael Evald Silva</h2>
+                    <h3 class="direita">Atualizado em 23/Fevereiro/2020</h3>
+                </hgroup>
+            </header>
+                <form method="POST" id="fContato" action="malto:rafael-evald@outlook.com" oninput="calc_total();" >
+                    <fieldset id="usuario">
+                        <legend> Identificação do Usuário </legend>
+                            <p> <label for="cNome"> Nome: </label> <input type="text/" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome completo"> </p>
+                            <p> <label for="cSenha"> Senha: </label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 digitos"> </p>
+                            <p> <label for="cEmail"> E-mail: </label> <input type="email" name="tEmail" id="cEmail" size="20" maxlength="40"> </p>
+                            <fieldset id="sexo">
+                                <legend> Sexo </legend>
+                                    <input type="radio" name="tSexo" id="cMasc" checked/> <label for="cMasc"> Masculino </label> <br>
+                                    <input type="radio" name="tSexo" id="cFem"/> <label for="cFem"> Feminino </label>
+                            </fieldset>    
+                            <p> <label for="cDataNasc"> Data de Nascimento: </label> <input type="date" name="tDataNasc" id="cDataNasc"/> </p>
+                    </fieldset>
+
+                    <fieldset id="endereco">
+                        <legend> Endereço do Usuário </legend>
+                            <p> <label for="cRua"> Logradouro: </label> <input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Rua, Av, Trav" /> </p>
+                            <p> <label for="cNumero"> Número: </label> <input type="number" name="tNumero" id="cNumero" min="0" max="99999" /> </p>
+                            <p> <label for="cEstado"> Estado: </label> <select name="tEstado" id="cEstado"> 
+                                <optgroup label="Região Sudeste">
+                                    <option value="RJ"> Rio de Janeiro </option>
+                                    <option value="SP"> São Paulo </option>
+                                </optgroup>
+                                <optgroup label="Região Norte">
+                                    <option value="RO" selected> Rondônia </option>
+                                    <option value="AC"> Acre </option>
+                                    <option value="AM"> Amazonas </option>
+                                </optgroup>
+                            </select> </p>
+                            <p> <label for="cCidade"> Cidade: </label> <input type="text" name="tCidade" id="cCidade" size="20" maxlength="30" placeholder="Sua cidade" list="cidades"/> </p>
+                            <datalist id="cidades">
+                                <option value="Ji-Paraná"></option>
+                                <option value="Jaru"></option>
+                                <option value="Mirante da Serra"></option>
+                                <option value="Nova União"></option>
+                            </datalist>
+                    </fieldset>
+
+                    <fieldset id="mensagem">
+                        <legend> Mensagem do Usuário </legend>
+                            <p> <label for="cUrg"> Grau de Urgência: </label> Min <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"/> Máx </p>
+                            <p> <label for="cMensagem"> Mensagem: </label> <textarea name="tMensagem" id="cMensagem" cols="45" rows="5" placeholder="Deixe aqui sua mensagem" ></textarea> </p>
+                    </fieldset>
+
+                    <fieldset id="compra">
+                        <legend> Quero um Google Glass </legend>
+                            <p> <input type="checkbox" name="tComp" id="cComp" checked /> <label for="cComp"> Gostaria de adquirir um Google Glass quando disponível </label> </p>
+                            <p> <label for="cCor"> Cor: </label> <input type="color" name="tCor" id="cCor" value="#0000FF"/> </p>
+                            <p> <label for="cQtd"> Quantidade: <input type="number" name="tQtd" id="cQtd" max="5" value="0"/> </label> </p>
+                            <p> <label for="cTot"> Preço Total: R$ <input type="text" name="tTot" id="cTot" placeholder="Total a pagar" readonly/> </label> </p>
+                    </fieldset>
+
+                    <input type="image" name="tEnviar" src="imagens/botao-enviar.png"/>
+                </form>
+            <footer id="rodape">
+                Copyright &copy; 2020 - by Rafael Evald Silva <br/>
+                <a href="https://www.facebook.com/rafaelevaldsilva" target="_blank">Facebook</a> | 
+                <a href="https://twitter.com/evald_rafael" target="_blank">Twitter</a>
+            </footer>
+        </div>
+    </body>
+</html>
